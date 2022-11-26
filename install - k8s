@@ -1,0 +1,13 @@
+k8s setup
+https://minikube.sigs.k8s.io/docs/start/
+
+curl binary:
+curl.exe -LO "https://dl.k8s.io/release/v1.25.0/bin/windows/amd64/kubectl.exe"
+
+
+#kubectl
+#https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/
+
+Minikube.exe start --driver=virtualbox  --kubernetes-version=v1.20.0
+
+minikube.exe status
