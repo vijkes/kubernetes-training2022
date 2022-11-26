@@ -1,4 +1,6 @@
+kind = create
 
+kubectl cluster-info
 notepad my_firstpod.yaml &
 kubectl get pods
 
