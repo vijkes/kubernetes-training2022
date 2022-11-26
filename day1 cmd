@@ -23,3 +23,27 @@ doskey/history
 C:\Users\vijay\Documents\container2022ws>
 
 
+=================================================================================================
+
+set based requirements are more expressive
+
+
+kubectl get pods --selector "dc!=IN" --show-labels
+kubectl get pods --selector "team!=dev" --show-labels
+
+kubectl create -f podlabel.yaml
+kubectl get pods
+
+kubectl get pods --selector "dc=US" --show-labels
+kubectl get pods --selector "dc!=US" --show-labels
+
+kubectl get pods --selector "dc in (US)"
+kubectl get pods --selector "dc in (US)" --show-labels
+
+kubectl get pods --selector "dc in (IN,US)" --show-labels
+
+kubectl get pods --selector "dc notin (IN,US)" --show-labels
+kubectl create -f podlabel.yaml
+
+kubectl get pods -l "dc in (US)"		<-l = selector >
+kubectl get pods -l "dc in (US)" --show-labels
