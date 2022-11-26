@@ -1,6 +1,8 @@
 kind = create
 
 kubectl cluster-info
+kubectl run myweb --image=httpd
+
 notepad my_firstpod.yaml &
 kubectl get pods
 
