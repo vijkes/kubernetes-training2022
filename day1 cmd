@@ -1,0 +1,21 @@
+
+notepad my_firstpod.yaml &
+kubectl get pods
+
+kubectl describe pod newpod
+kubectl describe pod newpod2
+
+
+kubectl describe pods/newpod
+
+kubectl create -f my_firstpod.yaml
+
+kubectl describe pod/newpod3
+kubectl describe pods     <describe all pods>
+kubectl delete pods --all	<delete all pods>
+
+doskey/history
+
+C:\Users\vijay\Documents\container2022ws>
+
+
