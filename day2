@@ -41,3 +41,35 @@ kubectl describe svc/myrcpod
 
 minikube ip
 
+----------------------------------=======================================================-------------------------------------------------------
+
+cluster ip = private(isolated)ip loadbalancer (eg: to run db)
+
+node port = provide public & private ip 
+similar to NAT/PAT in docker
+
+loadbalancer or externalname is used to integrate 
+k8s with external cloud lb or lb appliance to 
+boost the capacity(speed)of pods
+
+types of svc in k8s:
+
+cluster/server
+
+kubectl expose -h
+kubectl -h
+
+minikube ssh
+minikube ip
+
+kubectl run my27thpod --image=httpd
+kubectl get pods
+kubectl describe pods/my27thpod
+
+kubectl exec -it my27thpod /bin/bash
+kubectl exec -it my27thpod -- bash
+kubectl run checkip --image=vimal13/apache-webserver-php
+
+kubectl describe pods/checkip
+kubectl exec -it checkip -- bash
+
