@@ -1,3 +1,6 @@
+always os or ip doesn't communicate, only programme communicate
+
+
 Resource for replicas controlling
 Replication Controller
 we can't create rc with the help of command,
