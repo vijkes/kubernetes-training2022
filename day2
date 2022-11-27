@@ -1,0 +1,43 @@
+Resource for replicas controlling
+Replication Controller
+we can't create rc with the help of command,
+we have to write script
+
+If we launch pods ourself it will not be resilient unlike rc.
+
+
+kubectl describe pods/myrcpod-xdfmv
+kubectl apply -f rc.yaml
+
+Load balancer also works as 
+reverse proxy
+balancing
+health management
+
+
+Service in k8s is used for lb
+
+
+
+
+kubectl apply -f rc.yaml
+kubectl get pods
+
+kubectl -h
+kubectl scale -h
+
+
+kubectl scale replicas=4 rc myrcpod
+kubectl scale replicas=4 rc/myrcpod
+
+kubectl describe pods/myrcpod-5hgpw
+
+
+kubectl expose -h
+
+kubectl expose --type=NodePort --port=80 rc/myrcpod
+
+kubectl describe svc/myrcpod
+
+minikube ip
+
