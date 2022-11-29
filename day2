@@ -64,6 +64,8 @@ kubectl -h
 
 minikube ssh
 minikube ip
+hostname -i
+
 
 kubectl run my27thpod --image=httpd
 kubectl get pods
