@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mypriservice
+spec:
+  type: ClusterIP
+  selector:
+    team: ops
+  ports:
+    - port: 80
+      targetPort: 80
+      
