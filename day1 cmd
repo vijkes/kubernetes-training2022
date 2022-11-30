@@ -1,4 +1,4 @@
-kind = create
+kind = create/resourceType
 
 kubectl cluster-info
 kubectl run myweb --image=httpd
