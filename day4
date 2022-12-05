@@ -1,0 +1,30 @@
+kubectl apply -f doesn't support all the features
+like: env var
+so we have to start everything from begining
+
+Environment:
+      x:           5
+      firewaller:  working in village
+	  
+kubectl set
+
+These commands help you make changes 
+to existing application resources.	  
+
+in kubernetes world we call programe file as manifest
+
+kubectl set env RESOURCE/NAME KEY_1=VAL_1 ... KEY_N=VAL_N [options]
+  
+  
+notepad day6pod.yaml
+kubectl apply -f day6pod.yaml
+kubectl get all --all
+kubectl exec -it my6thpod -- bash
+kubectl set env pod my6thpod y=6
+
+kubectl set env -h
+kubectl get pods
+kubectl get pods -w
+kubectl logs pods/dbpod
+kubectl get events
+kubectl describe pods/dbpod
