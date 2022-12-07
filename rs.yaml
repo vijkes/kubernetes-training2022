@@ -2,6 +2,7 @@ Equality based selectors are little bit old
 and it becomes complex when we have a lots of labels.
 So, we use set-based selectors.
 
+kubectl scale rs myrs1 --replicas=4
 
 apiVersion: apps/v1
 kind: ReplicaSet
