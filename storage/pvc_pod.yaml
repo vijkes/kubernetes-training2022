@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: mypvcpod
+  labels: 
+    team: "dev"
+spec:
+  volumes:
+    - name: mys1
+    persistentVolumeClaim:
+      claimName: myvkpvc
+  containers:
+    - name: mypvcont
+      image: httpd
+      volumeMounts:
+      - mountPath: /var/www/html
+        name: mys1
