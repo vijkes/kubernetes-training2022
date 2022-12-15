@@ -6,3 +6,5 @@ kubectl get deploy
 kubectl get deployment
 
 kubectl set image deploy/mynewd newweb=vijkes/newweb:v5
+
+kubectl get rs
