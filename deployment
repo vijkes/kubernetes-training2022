@@ -8,3 +8,7 @@ kubectl get deployment
 kubectl set image deploy/mynewd newweb=vijkes/newweb:v5
 
 kubectl get rs
+
+kubectl edit deploy/mywed
+kubectl rollout undo deploy/mynewd --to-revision=1
+kubectl rollout history deploy/mynewd
