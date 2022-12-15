@@ -1,0 +1,8 @@
+kubectl rollout -h
+kubectl rollout status deploy mynewd
+kubectl rollout history deploy mynewd
+
+kubectl get deploy
+kubectl get deployment
+
+kubectl set image deploy/mynewd newweb=vijkes/newweb:v5
