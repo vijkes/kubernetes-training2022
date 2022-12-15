@@ -12,3 +12,31 @@ kubectl get rs
 kubectl edit deploy/mywed
 kubectl rollout undo deploy/mynewd --to-revision=1
 kubectl rollout history deploy/mynewd
+
+
+====================================================================================================================
+
+Rampad (rolling update)
+recreate 
+
+are bydefault deployment strategies
+
+Recreate: first delete all the old container and then create a new one
+and also has some downtime
+
+Rolling update: if you don't want to face downtime 
+
+As soon as we launch deployment internally they launch 
+a replica set and ask a replica set to launch the pod
+
+Deployment only duty is to provide the strategies, 
+it doesn't know how to launch the pods, how to replicate, 
+or run services
+
+Types of deployment:
+Rampad
+Recreate
+Blue-green
+Canary
+A/B testing
+
