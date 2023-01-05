@@ -1,0 +1,65 @@
+etcd is a db, that contains info in key value format
+
+kube-scheduler identifies the right node ,  to place a container on 
+based on the container resource requirement, the worker node capacity
+
+controller-manager:
+node-controller: takes care of node, responsible for on boarding new nodes to the cluster,
+handling situations where nodes become unabailable or gets destroyed.
+
+replication-controller: ensures actual capacity = desired capacity
+(or desired no. of containers are running at all times)
+
+kube-apiServer is primary management component of k8s cluster
+it is responsible for orchestrating all operations within the cluster,
+it exposes the k8s api which is used by external users to perform management
+operations on the cluster as well as various controllers to monitor
+the state of the cluster and make necessaey changes as required
+and by the worker nodes to communicate with the server
+
+CRE:
+container run-time engine: we need docker or equivalent (container.d or rkt) to be installed on all the 
+nodes including master, if you wish to host control plan components as containers
+(our app is in the form of containers, )
+we need everything to be container compatible,
+the different components that form entire management sys on the master node,
+could be hosted in the form of container even the DNS service, n/w solution 
+can be deployed in the form of containers. so, we need s/w that can run 
+containers & that is CRE.
+
+
+
+
+worker node
+
+Kubelet: it is an agent that runs on each node in a cluster, 
+it listens for instructions from kube-apiServer and
+deploy or destroy containers on the nodes as required.
+kube-apiServer periodically fetches status reports from kubelet 
+to monitor the status of nodes & containers on them.
+(similar to captain on the cargo)
+
+kube-proxy:
+it helps in communication among worker nodes (like: web server running in a pod on one 
+node and db in pod in another node)
+ensures necessary rules are in place on the worker nodes to allow the containers running on 
+them to reach each other.
+
+
+
+
+
+summary:
+MASTER NODE:
+etcd: contains info about the cluster
+kube-scheduler: responsible for scheduling apps or containers on nodes
+
+control manager:
+node and replication-controller: take care of different fn
+
+kube-apiServer: resonsible for orchestrating all operstion within the cluster
+
+WORKER NODE:
+kubelet: listen for instruction from kube-apiServer and manages containers
+kube-proxy: helps in communication within the pods(services) on different nodes within the cluster
+
