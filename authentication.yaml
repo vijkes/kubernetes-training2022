@@ -1,5 +1,6 @@
 kubectl config view > newkube.config
 kubectl config view --kubeconfig newkube.config
+kubectl cluster-info
 kubectl get pods --server https://192.168.59.102:8443 --client-key /root/client.key --client-certificate /root/client.crt --certificate-authority /root/ca.crt
 cp newkube.config /root/.kube/config
 
