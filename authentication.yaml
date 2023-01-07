@@ -1,0 +1,27 @@
+kubectl config view > newkube.config
+kubectl config view --kubeconfig newkube.config
+kubectl get pods --server https://192.168.59.102:8443 --client-key /root/client.key --client-certificate /root/client.crt --certificate-authority /root/ca.crt
+cp newkube.config /root/.kube/config
+
+-------------------------------===================---------------===================------------------------------------------==============------------===========----------------
+
+
+kind: Config
+clusters:
+  - cluster:
+      server: "https://192.168.59.102:8443"
+      certificate-authority: "/root/ca.crt"
+    name: newcluster
+
+contexts:
+  - context:
+      cluster: newcluster
+      user: vk
+    name: newc1
+
+current-context: "newc1"
+users:
+   - name: vk
+     user:
+        client-key: "/root/client.key"
+        client-certificate: "/root/client.crt"
