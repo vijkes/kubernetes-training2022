@@ -1,0 +1,6 @@
+in a company manager is a role
+but when we assign this role to any entity , 
+it is called role-binding
+
+Verbs: the actions on a resource that a role uses in its rules
+get, list, create, delete
