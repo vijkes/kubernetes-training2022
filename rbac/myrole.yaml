@@ -1,0 +1,9 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+ name: mymonitor-role
+ namespace: testing
+rules:
+ - apiGroups: [""]
+   resources: [ "pods", "deployments" ]
+   verbs: [ "list", "create", "watch", "delete" ]
