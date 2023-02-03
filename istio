@@ -1,0 +1,33 @@
+docker:runc :: kubectl:kubeconfig
+
+info about cluster is called context
+
+
+sidecar/proxy: another container is running alongside your app 
+container within the same pod
+
+daemonset: another pod is running in your node
+
+service mesh works as sidecar pattern or containers
+and this is injected in the app and become part of control plane.
+	
+
+features:
+communication config
+security
+metric
+tracing
+traffic splitting (canary deployment)
+
+after seting service mesh, these porxy will be communicating among each other
+instead of micro-services, micro-services will send info to proxy.
+
+
+istio deploys a sidecar container known as envoy container.
+s2s communication will be encrypted now (earlier plain text) bcz of m-TLS.	
+traffic splitting, metric
+
+so we will not see prod level deployment of k8s without service mesh
+
+eg: Linkerd, Istio, AWS App Mesh.	
+kiali
