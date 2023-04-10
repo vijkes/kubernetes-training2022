@@ -1,0 +1,85 @@
+apt-get install apt-transport-https ca-certificates curl software-properties-common -y
+    6  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+    7  add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu  $(lsb_release -cs)  stable"
+    8  apt-get install docker-ce -y
+    9  docker --version
+   10  curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add
+   11  apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+   12  apt-get update -y
+   13  apt-get install kubelet kubeadm kubectl -y
+   14  vim /etc/docker/daemon.json
+   15  systemctl daemon-reload
+   16  systemctl restart docker
+   17  systemctl enable docker
+   18  systemctl status docker 
+   19  kubeadm init --pod-network-cidr=10.244.0.0/16
+   20  apt install -qq -y cri-o cri-o-runc cri-tools
+   21  kubeadm init --pod-network-cidr=10.244.0.0/16
+   22  kubectl get pods 
+   23  kubeadm init --config=kubeadm-config.yaml --upload-certs --skip-phases=addon/kube-proxy | tee kubeadm-init.out
+   24  kubeadm init --config=kubeadm-config.yaml --upload-certs --skip-phases=addon/kube-proxy 
+   25  mkdir -p $HOME/.kube
+   26  cp -i /etc/kubernetes/kubelet.conf $HOME/.kube/config
+   27  kubectl get pods 
+   28  kubeadm init --pod-network-cidr=10.244.0.0/16
+   29  vim ~/.bashrc 
+   30  kubeadm init --pod-network-cidr=10.244.0.0/16
+   31  kubectl get pods 
+   32  kubeadm init --pod-network-cidr=10.244.0.0/16
+   33  vim ~/.bashrc 
+   34  source ~/.bashrc 
+   35  kubeadm init --pod-network-cidr=10.244.0.0/16
+   36  kubectl get pods 
+   37  mkdir -p $HOME/.kube
+   38  cp -i /etc/kubernetes/kubelet.conf $HOME/.kube/config
+   39  cd /etc/kubernetes/
+   40  ll
+   41  cd
+   42  kubectl get pods 
+   43  systemctl disble --now ufw
+   44  systemctl disble ufw
+   45  cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+   46  apt-get install kubelet kubeadm kubectl -y
+   47  export KUBECONFIG=/etc/kubernetes/admin.conf
+   48  echo $KUBETCONFIG
+   49  mv  $HOME/.kube $HOME/.kube.bak
+   50  mkdir $HOME/.kube
+   51  cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+   52  cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
+   53  overlay
+   54  br_netfilter
+   55  EOF
+   56  modprobe overlay
+   57  modprobe br_netfilter
+   58  lsmod | egrep  "overlay|netfilter"
+   59  cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+   60  net.bridge.bridge-nf-call-iptables  = 1
+   61  net.bridge.bridge-nf-call-ip6tables = 1
+   62  net.ipv4.ip_forward                 = 1
+   63  EOF
+   64  sysctl --system
+   65  wget  https://github.com/containerd/containerd/releases/download/v1.6.20/containerd-1.6.20-linux-amd64.tar.gz
+   66  ll
+   67  tar Cxzvf /usr/local containerd-1.6.20-linux-amd64.tar.gz 
+   68  wget https://raw.githubusercontent.com/containerd/containerd/main/containerd.service
+   69  ll
+   70  cp containerd.service /usr/lib/systemd/system/
+   71  systemctl daemon-reload
+   72  systemctl enable --now containerd
+   73  systemctl enable --now kubelet
+   74  wget https://github.com/opencontainers/runc/releases/download/v1.1.5/runc.amd64
+   75  ll
+   76  install -m 755 runc.amd64 /usr/local/sbin/runc
+   77  wget https://github.com/containernetworking/plugins/releases/download/v1.2.0/cni-plugins-linux-amd64-v1.2.0.tgz
+   78  ll
+   79  mkdir -p /opt/cni/bin
+   80  tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.2.0.tgz 
+   81  kubeadm config images pull --v=5
+   82  kubeadm init --pod-network-cidr=10.244.0.0/16
+   83  kubeadm config images pull --v=5
+   84  kubeadm init --pod-network-cidr=10.244.0.0/16
+   85  apt install -y containerd.io
+   86  containerd config default>/etc/containerd/config.toml
+   87  systemctl restart containerd
+   88  systemctl status  containerd
+   89  apt-get update && apt-get install -y apt-transport-https ca-certificates curl
