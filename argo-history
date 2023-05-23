@@ -1,0 +1,34 @@
+$ kubectl get all -n argocd
+NAME                                                    READY   STATUS    RESTARTS        AGE
+pod/argocd-application-controller-0                     1/1     Running   0               2m53s
+pod/argocd-applicationset-controller-78d68d858c-tgj8g   1/1     Running   0               3m4s
+pod/argocd-dex-server-887bcbf79-69m6s                   1/1     Running   2 (2m58s ago)   3m2s
+pod/argocd-notifications-controller-6c84989cb4-rqfxt    1/1     Running   0               3m1s
+pod/argocd-redis-74d77964b-fpw2x                        1/1     Running   0               2m59s
+pod/argocd-repo-server-78bf57564c-skvtk                 1/1     Running   0               2m56s
+pod/argocd-server-7c5d6b7df5-nx9fw                      1/1     Running   0               2m54s
+
+NAME                                              TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                      AGE
+service/argocd-applicationset-controller          ClusterIP   10.100.144.171   <none>        7000/TCP,8080/TCP            3m25s
+service/argocd-repo-server                        ClusterIP   10.100.106.62    <none>        8081/TCP,8084/TCP            3m10s
+service/argocd-server                             ClusterIP   10.100.81.6      <none>        80/TCP,443/TCP               3m9s
+service/argocd-server-metrics                     ClusterIP   10.100.75.118    <none>        8083/TCP                     3m7s
+
+NAME                                               READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/argocd-applicationset-controller   1/1     1            1           3m8s
+deployment.apps/argocd-dex-server                  1/1     1            1           3m6s
+deployment.apps/argocd-notifications-controller    1/1     1            1           3m5s
+deployment.apps/argocd-redis                       1/1     1            1           3m3s
+deployment.apps/argocd-repo-server                 1/1     1            1           3m
+deployment.apps/argocd-server                      1/1     1            1           2m58s
+
+NAME                                                          DESIRED   CURRENT   READY   AGE
+replicaset.apps/argocd-applicationset-controller-78d68d858c   1         1         1       3m10s
+replicaset.apps/argocd-dex-server-887bcbf79                   1         1         1       3m8s
+replicaset.apps/argocd-notifications-controller-6c84989cb4    1         1         1       3m7s
+replicaset.apps/argocd-redis-74d77964b                        1         1         1       3m5s
+replicaset.apps/argocd-repo-server-78bf57564c                 1         1         1       3m2s
+replicaset.apps/argocd-server-7c5d6b7df5                      1         1         1       3m
+
+NAME                                             READY   AGE
+statefulset.apps/argocd-application-controller   1/1     3m
