@@ -1,0 +1,31 @@
+  28 yum install docker -y  
+  29 yum enable docker --now
+  30  cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+exclude=kubelet kubeadm kubectl
+EOF
+
+   31  sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+   32  sudo systemctl enable --now kubelet
+   33  kubectl --version
+   34  kubectl version
+   35  kubeadm init --apiserver-advertise-address=172.31.26.10 --pod-network-cidr=192.168.0.0/16
+   36  kubectl get nodes
+   37  export KUBECONFIG=/etc/kubernetes/admin.conf
+   38  kubectl get nodes
+   39  vim /etc/bashrc
+   40  kubectl get nodes
+   41  kubectl get all -A
+   42  kubectl get nodes
+   43  history
+   44  kubectl get nodes
+   45  cat /etc/kubernetes/admin.conf
+   46  curl https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/calico.yaml -O
+   47  ll
+   48  cat calico.yaml
+   49  kubectl apply -f calico.yaml
