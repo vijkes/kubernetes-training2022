@@ -1,0 +1,25 @@
+    1  sudo yum install docker -hy
+    2  sudo yum install docker -y
+    3  systemctl enable docker --now
+    4  sudo systemctl enable docker --now
+    5  cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+exclude=kubelet kubeadm kubectl
+EOF
+
+    6  sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+    7  sudo systemctl enable --now kubelet
+    9  sudo kubeadm join 172.31.28.30:6443 --token sk11a0.q9sfmthtecerdyov         --discovery-token-ca-cert-hash sha256:f4d49d0dca745cebaf30dfd5c910783e113c154d01eb2fc5
+   10  kubectl get nodes
+   11  mkdir -p $HOME/.kube
+   12  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+   13  vim  /etc/kubernetes/admin.conf
+   14  sudo vim  /etc/kubernetes/admin.conf
+   15  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+   16  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+   17  kubectl get nodes
